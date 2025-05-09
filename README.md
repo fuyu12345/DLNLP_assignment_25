@@ -80,6 +80,30 @@ To install all required packages:
 ```bash
 pip install -r requirements.txt
 ```
+🚨 **Important Notification**
+
+Before running the training pipeline, you need to make a small modification in the `trl` library:
+
+1. Navigate to the `trl` library folder: cd <path_to_your_trl_library>/trl/trainer
+2. Open the `grpo_trainer.py` file.
+3. Locate the following lines (approximately between **line 795 to 805**):
+
+```python
+reward_kwargs = {key: [example[key] for example in inputs] for key in keys}
+```
+4.Insert the following lines immediately after that block:
+```python
+reward_kwargs.update({
+    "model": self.model,
+    "tokenizer": self.processing_class
+})
+```
+5. Ensure that it is placed before this line:
+
+```python
+output_reward_func = reward_func(prompts=prompts, completions=completions, **reward_kwargs)
+```
+This modification is crucial for ensuring that the tokenizer and model can be accessed correctly within the self_reward_func during training. If this step is skipped, the self-rewarding mechanism will not work properly.
 
 ## 🧪 Running the Code
 
