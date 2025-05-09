@@ -428,10 +428,6 @@ def self_judge_reward_func(
 # # $$$$$$$$$$$$$$$$$$$$$$$$$$$$ New code stop $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
-
-
-
-
     
 
 def accuracy_reward(completions, solution, **kwargs):

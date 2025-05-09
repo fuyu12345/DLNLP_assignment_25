@@ -4,7 +4,8 @@ def main():
     try:
         # Execute the shell script
         print("Starting the training process using run.sh...")
-        subprocess.run(["bash", "run.sh"], check=True)
+        # replace with the  shell script to run the training and evaluation
+        subprocess.run(["bash", "run.sh"], check=True) 
         print("successfully.")
     except subprocess.CalledProcessError as e:
         print(f"An error occurred during training: {e}")
