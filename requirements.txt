@@ -1,0 +1,16 @@
+# Core Libraries
+torch
+transformers
+datasets
+trl
+tqdm
+accelerate
+latex2sympy2-extended
+math-verify
+einops
+dotenv
+asyncio
+e2b_code_interpreter
+torch.distributed
+logging
+dataclasses
